@@ -1,0 +1,9 @@
+zone "lab.example.com" {
+    type master;
+    file "/etc/named/zones/db.ocp.lab.example.com"; # zone file path
+};
+
+zone "25.25.172.in-addr.arpa" {
+    type master;
+    file "/etc/named/zones/db.172.25.25.lab.example.com";  # 172.25.25.0/24 subnet
+};
