@@ -2,6 +2,7 @@
 
 ## OCP4.9 Cluster Requirements
 Below are virtual machines running on RHEL/Centos host with Qemu Virtualization Engine
+  - One Bootstrap Machine
   - Three Control Plane Machines
   - Three Master Node
   - One Machine for Services ( DNS - DHCP - HAProxy and Webserver) 
@@ -199,3 +200,9 @@ Dec 22 18:27:44 ocp-services haproxy[41919]: Proxy ocp_https_ingress_traffic_fe 
 Dec 22 18:27:44 ocp-services haproxy[41919]: Proxy ocp_https_ingress_traffic_be started.
 Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
 ```
+
+## Deploying the RHCOP 4.9.11 Cluster 
+  - Download the RHCOS 4.9.11 from https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.9/latest/rhcos-metal.x86_64.raw.gz
+  - confirm that all the created machines ( 1 bootstrap , 3 Master and 3 Nodes ) network interface MAC is configured correctly in the dhcp server, because the RHCOS machines  will be assigned their IPs from the DHCP Server 
+  - configure your bootmachine option to boot first from the RHCOS live machine 
+  - 
