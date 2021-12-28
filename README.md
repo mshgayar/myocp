@@ -121,4 +121,9 @@ openshift-install create manifests --dir=install_dir/
 sed -i 's/mastersSchedulable: true/mastersSchedulable: False/' install_dir/manifests/cluster-scheduler-02-config.yml
 openshift-install create ignition-configs --dir=install_dir/
 
+copy all ignition file to ther web server
+cp install_dir/bootstrap.ign /var/www/html/ocp/
+cp install_dir/metadata.json /var/www/html/ocp/
+cp install_dir/master.ign /var/www/html/ocp/
+
 ```
