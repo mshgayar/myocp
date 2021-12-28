@@ -1,6 +1,7 @@
 # openshift 4.9 Cluster Installation
 
 ## OCP4.9 Cluster Requirements
+Below are virtual machines running on RHEL host with Qemu Virtualization Engine
   - Three Control Plane Machines
   - Three Master Node
   - One Machine for Services ( DNS - DHCP - HAProxy and Webserver) 
