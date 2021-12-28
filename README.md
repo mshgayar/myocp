@@ -8,7 +8,7 @@
 
 ### Preparing the OCP-Services Machine : This Machine in installed with Centos 8
   - We Have to install the below services
-    - DNS Server
-    - DHCP Server
-    - HAProxy Server
-    - Apache Server
+    - DNS Server bind
+    - DHCP Server dhcp
+    - HAProxy Server haproxy
+    - Apache Server httpd
