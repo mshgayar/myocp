@@ -14,7 +14,7 @@ Below are virtual machines running on RHEL/Centos host with Qemu Virtualization 
     - HAProxy Server haproxy
     - Apache Server httpd
 
-#### DNS Server Installation : IP 172.16.255.230
+#### 1) DNS Server Installation : IP 172.16.255.230
 Install dns service
   ``` 
   yum -y install bind bind-utils
@@ -43,7 +43,7 @@ cat /etc/resolve.conf
   nameserver 172.16.255.230
 ```
 
-#### DHCP Server : Please update the dhcpd.conf with the MAC Address of all your virtual machines 
+#### 2) DHCP Server : Please update the dhcpd.conf with the MAC Address of all your virtual machines 
 ```
 yum -y install dhcp
 cp dhcpd.conf /etc/dhcp/dhcpd.conf
@@ -54,7 +54,7 @@ systemctl status dhcpd.service
 firewall-cmd --permanent --add-service=dhcp
 firewall-cmd --reload
 ```
-#### Install HAProxy Loadbalancer for the HTTP,HTTPS and API Traffic 
+#### 3) Install HAProxy Loadbalancer for the HTTP,HTTPS and API Traffic 
 ```
 yum install haproxy
 cp haproxy.cfg /etc/haproxy/haproxy.cfg
@@ -72,4 +72,16 @@ firewall-cmd --permanent --add-service=https
 firewall-cmd --reload
 systemctl restart haproxy
 systemctl status haproxy
+```
+#### 4) Apacher web server 
+```
+yum install –y httpd
+sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
+mkdir /var/www/html/ocp
+setsebool -P httpd_read_user_content 1
+systemctl enable httpd
+systemctl start httpd
+firewall-cmd --permanent --add-port=8080/tcp
+firewall-cmd –reload
+curl localhost:8080
 ```
