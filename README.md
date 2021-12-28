@@ -234,7 +234,11 @@ Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
 
 ## The Cluster Installation Almost done
   - the master nodes will pull the cluster operatiors images and write the cluster operators to the disk
-  - it will 20 minutes to complete installation & pulling all RHOCP cluster operators images.
+  - it will 30 minutes to complete installation & pulling all RHOCP cluster operators images.
   - wait 30 minutes till cluster to be up
     - openshift-install --dir=install_dir/ wait-for bootstrap-complete --log-level=info
-    - 
+  - After Sucessful Installation :
+    - export KUBECONFIG=~/install_dir/auth/kubeconfig
+    - oc whoami
+    - oc get nodes
+    - oc get csr
