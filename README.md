@@ -211,3 +211,9 @@ Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
     - After booting to the iso version , please confirm that the machine IP is assigned from the dhcp server with below details
       - hostname : bootstrap.lab.example.com
       - IP : 172.16.255.238
+    - Then install the bootstrap from its ignition files as per below :
+      - sudo coreos install /dev/sda --ignition-url http://172.16.255.230:8080/ocp --insecure-ignition
+      - confirm that its loading the RHCOS image , after succefull loading , you can reboot the machine
+   
+  ###
+      
