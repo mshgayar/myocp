@@ -294,7 +294,14 @@ storage                                    4.9.11    True        False         F
   ```
 ## Accessing the cluster & create HTPasswd identity 
   - In directory install_dir , you will the password of the kuebeadmin password 
-  - ```
+  ```
     - cat install_dir/auth/kubeadmin-password
     - oc login -u kubeadmin -p "password"
-```
+  ```
+  - Configure the Openshift Oauth server with new HTPasswd identity 
+    ```
+    oc get oauth -o yaml > oauth.yml -n openshift-config
+    htpasswd -c -b -B htpasswd-file admin redhat
+    oc create secret generic localusers --from-file htpasswd=htpasswd-file  -n openshift-config
+   
+    ```
