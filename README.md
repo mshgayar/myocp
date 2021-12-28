@@ -205,4 +205,9 @@ Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
   - Download the RHCOS 4.9.11 from https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.9/latest/rhcos-metal.x86_64.raw.gz
   - confirm that all the created machines ( 1 bootstrap , 3 Master and 3 Nodes ) network interface MAC is configured correctly in the dhcp server, because the RHCOS machines  will be assigned their IPs from the DHCP Server 
   - configure your bootmachine option to boot first from the RHCOS live machine 
-  - 
+  
+  ### For Bootstrap Machine : temporary machine to provision the whole cluster
+    - Please boot from the rhcos-live iso , 
+    - After booting to the iso version , please confirm that the machine IP is assigned from the dhcp server with below details
+      - hostname : bootstrap.lab.example.com
+      - IP : 172.16.255.238
