@@ -54,3 +54,20 @@ systemctl status dhcpd.service
 firewall-cmd --permanent --add-service=dhcp
 firewall-cmd --reload
 ```
+#### Install HAProxy Loadbalancer for the HTTP,HTTPS and API Traffic 
+```
+yum install haproxy
+cp haproxy.cfg /etc/haproxy/haproxy.cfg
+
+sudo setsebool -P haproxy_connect_any 1
+sudo systemctl enable haproxy
+sudo systemctl start haproxy
+sudo systemctl status haproxy
+
+add openshift firewall ports
+firewall-cmd --permanent --add-port=6443/tcp
+firewall-cmd --permanent --add-port=22623/tcp
+firewall-cmd --permanent --add-service=http
+firewall-cmd --permanent --add-service=https
+firewall-cmd --reload
+```
