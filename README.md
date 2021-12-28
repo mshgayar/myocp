@@ -126,4 +126,7 @@ cp install_dir/bootstrap.ign /var/www/html/ocp/
 cp install_dir/metadata.json /var/www/html/ocp/
 cp install_dir/master.ign /var/www/html/ocp/
 
+sudo chown -R apache: /var/www/html/
+sudo chmod -R 755 /var/www/html/
+
 ```
