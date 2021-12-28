@@ -292,3 +292,9 @@ operator-lifecycle-manager-packageserver   4.9.11    True        False         F
 service-ca                                 4.9.11    True        False         False      6d      
 storage                                    4.9.11    True        False         False      6d
   ```
+## Accessing the cluster & create HTPasswd identity 
+  - In directory install_dir , you will the password of the kuebeadmin password 
+  - ```
+    - cat install_dir/auth/kubeadmin-password
+    - oc login -u kubeadmin -p "password"
+```
