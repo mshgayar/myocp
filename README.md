@@ -169,3 +169,33 @@ services.lab.example.com. 604800 IN	A	172.16.255.230
 ;; WHEN: Tue Dec 28 17:21:22 +03 2021
 ;; MSG SIZE  rcvd: 192
 ```
+
+#### check the dhcp server
+```
+systemctl status dhcpd.service
+```
+
+### check the haproxy server
+```
+[root@ocp-services ~]# systemctl status haproxy.service 
+● haproxy.service - HAProxy Load Balancer
+   Loaded: loaded (/usr/lib/systemd/system/haproxy.service; enabled; vendor preset: disabled)
+   Active: active (running) since Wed 2021-12-22 18:27:44 +03; 5 days ago
+ Main PID: 41919 (haproxy)
+    Tasks: 2 (limit: 36575)
+   Memory: 12.5M
+   CGroup: /system.slice/haproxy.service
+           ├─41919 /usr/sbin/haproxy -Ws -f /etc/haproxy/haproxy.cfg -p /run/haproxy.pid
+           └─41923 /usr/sbin/haproxy -Ws -f /etc/haproxy/haproxy.cfg -p /run/haproxy.pid
+
+Dec 22 18:27:44 ocp-services haproxy[41919]: Proxy stats started.
+Dec 22 18:27:44 ocp-services haproxy[41919]: Proxy ocp_k8s_api_fe started.
+Dec 22 18:27:44 ocp-services haproxy[41919]: Proxy ocp_k8s_api_be started.
+Dec 22 18:27:44 ocp-services haproxy[41919]: Proxy ocp_machine_config_server_fe started.
+Dec 22 18:27:44 ocp-services haproxy[41919]: Proxy ocp_machine_config_server_be started.
+Dec 22 18:27:44 ocp-services haproxy[41919]: Proxy ocp_http_ingress_traffic_fe started.
+Dec 22 18:27:44 ocp-services haproxy[41919]: Proxy ocp_http_ingress_traffic_be started.
+Dec 22 18:27:44 ocp-services haproxy[41919]: Proxy ocp_https_ingress_traffic_fe started.
+Dec 22 18:27:44 ocp-services haproxy[41919]: Proxy ocp_https_ingress_traffic_be started.
+Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
+```
