@@ -105,7 +105,15 @@ kubectl version
 ```
 
 ## Setting Up RHOCP 4.9.11 ignition and configuration files
-Create a directory for the mainfest and ignition files
+Steps :
+  - Create a directory for the mainfest and ignition files & copy install-config.yml to this install_dir
+  - configure the cluster name , to match the dns name
+  - download the pullsecret from your openshift cloud provider and add the pullsecret information to install-config.yml
+  - create ssh-key and add your public key to the install-config.yml
+  - Generate the Kubernetes manifests for the cluster, ignore the warning
+  - Modify the cluster-scheduler-02-config.yaml manifest file to prevent Pods from being scheduled on the control plane machines
+  - create the ignition-configs
+  - copy all the ignition files to your webservers (/var/www/html/ocp)
 ```
 #mkdir install_dir
 cp install-config.yml install_dir
