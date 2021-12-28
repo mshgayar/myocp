@@ -248,11 +248,12 @@ Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
   ```
     oc adm certificate approve "Name"
     oc get nodes
-    NAME                       STATUS   ROLES    AGE     VERSION
-master01.lab.example.com   Ready    master   6d      v1.22.3+ffbb954
-master02.lab.example.com   Ready    master   6d      v1.22.3+ffbb954
-master03.lab.example.com   Ready    master   6d      v1.22.3+ffbb954
-worker01.lab.example.com   Ready    worker   5d23h   v1.22.3+ffbb954
-worker02.lab.example.com   Ready    worker   5d23h   v1.22.3+ffbb954
-worker03.lab.example.com   Ready    worker   5d23h   v1.22.3+ffbb954
+    
+  NAME                       STATUS   ROLES    AGE     VERSION
+  master01.lab.example.com   Ready    master   6d      v1.22.3+ffbb954
+  master02.lab.example.com   Ready    master   6d      v1.22.3+ffbb954
+  master03.lab.example.com   Ready    master   6d      v1.22.3+ffbb954
+  worker01.lab.example.com   Ready    worker   5d23h   v1.22.3+ffbb954
+  worker02.lab.example.com   Ready    worker   5d23h   v1.22.3+ffbb954
+  worker03.lab.example.com   Ready    worker   5d23h   v1.22.3+ffbb954
   ```
