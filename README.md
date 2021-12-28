@@ -16,6 +16,10 @@ Below are virtual machines running on RHEL/Centos host with Qemu Virtualization 
     - Apache Server httpd
 
 #### 1) DNS Server Installation : IP 172.16.255.230 , to resolve all cluster machines with dns names
+
+clone the configuration files
+  - git clone https://github.com/mshgayar/myocp.git
+
 Install dns service
   ``` 
   yum -y install bind bind-utils
