@@ -258,7 +258,7 @@ Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
   worker03.lab.example.com   Ready    worker   5d23h   v1.22.3+ffbb954
   
     oc get clusteroperators.config.openshift.io
-    NAME                                       VERSION   AVAILABLE   PROGRESSING   DEGRADED   SINCE   MESSAGE
+NAME                                       VERSION   AVAILABLE   PROGRESSING   DEGRADED   SINCE   MESSAGE
 authentication                             4.9.11    True        False         False      5d23h   
 baremetal                                  4.9.11    True        False         False      6d      
 cloud-controller-manager                   4.9.11    True        False         False      6d      
