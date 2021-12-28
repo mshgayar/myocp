@@ -315,3 +315,7 @@ storage                                    4.9.11    True        False         F
       name: myusers
       type: HTPasswd
   ```
+  ```
+  oc replace -f oauth.yml -n openshift-config
+  oc get pods -w -n openshift-authentication
+  ```
