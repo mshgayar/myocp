@@ -59,15 +59,17 @@ firewall-cmd --reload
 yum install haproxy
 cp haproxy.cfg /etc/haproxy/haproxy.cfg
 
-sudo setsebool -P haproxy_connect_any 1
-sudo systemctl enable haproxy
-sudo systemctl start haproxy
-sudo systemctl status haproxy
+setsebool -P haproxy_connect_any 1
+systemctl enable haproxy
+systemctl start haproxy
+systemctl status haproxy
 
-add openshift firewall ports
+#### add openshift firewall ports
 firewall-cmd --permanent --add-port=6443/tcp
 firewall-cmd --permanent --add-port=22623/tcp
 firewall-cmd --permanent --add-service=http
 firewall-cmd --permanent --add-service=https
 firewall-cmd --reload
+systemctl restart haproxy
+systemctl status haproxy
 ```
