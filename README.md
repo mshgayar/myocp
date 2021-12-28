@@ -231,3 +231,10 @@ Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
       - hostname : worker03.lab.example.com & IP 172.16.255.236
     - Then install the bootstrap from its ignition files as per below :
       - sudo coreos install /dev/sda --ignition-url http://172.16.255.230:8080/ocp/worker.ign --insecure-ignition
+
+## The Cluster Installation Almost done
+  - the master nodes will pull the cluster operatiors images and write the cluster operators to the disk
+  - it will 20 minutes to complete installation & pulling all RHOCP cluster operators images.
+  - wait 30 minutes till cluster to be up
+    - openshift-install --dir=install_dir/ wait-for bootstrap-complete --log-level=info
+    - 
