@@ -90,13 +90,16 @@ curl localhost:8080
 ```
 wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux-4.9.11.tar.gz
 wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-install-linux-4.9.11.tar.gz
+
 tar zxfz openshift-client-linux-4.9.11.tar.g
 cp oc kubectl /usr/local/bin/
 cp oc /usr/local/sbin/
-oc version
-kubectl version
+
 tar xvfz openshift-install-linux-4.9.11.tar.gz
 cp openshift-install /usr/local/bin/
 cp openshift-install /usr/local/sbin/
-openshift-install versio
+
+openshift-install version
+oc version
+kubectl version
 ```
