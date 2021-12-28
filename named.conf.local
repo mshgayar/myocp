@@ -3,7 +3,7 @@ zone "lab.example.com" {
     file "/etc/named/zones/db.ocp.lab.example.com"; # zone file path
 };
 
-zone "25.25.172.in-addr.arpa" {
+zone "255.16.172.in-addr.arpa" {
     type master;
-    file "/etc/named/zones/db.172.25.25.lab.example.com";  # 172.25.25.0/24 subnet
+    file "/etc/named/zones/db.172.16.255.lab.example.com";  # 172.16.255.0/24 subnet
 };
