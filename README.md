@@ -14,7 +14,7 @@ Below are virtual machines running on RHEL/Centos host with Qemu Virtualization 
     - HAProxy Server haproxy
     - Apache Server httpd
 
-#### 1) DNS Server Installation : IP 172.16.255.230
+#### 1) DNS Server Installation : IP 172.16.255.230 , to resolve all cluster machines with dns names
 Install dns service
   ``` 
   yum -y install bind bind-utils
@@ -43,7 +43,7 @@ cat /etc/resolve.conf
   nameserver 172.16.255.230
 ```
 
-#### 2) DHCP Server : Please update the dhcpd.conf with the MAC Address of all your virtual machines 
+#### 2) DHCP Server : Please update the dhcpd.conf with the MAC Address of all your virtual machines to be assigned with specific IPs from dhcp pool.
 ```
 yum -y install dhcp
 cp dhcpd.conf /etc/dhcp/dhcpd.conf
@@ -73,7 +73,7 @@ firewall-cmd --reload
 systemctl restart haproxy
 systemctl status haproxy
 ```
-#### 4) Apacher web server 
+#### 4) Apacher web server : to host all the ignition (RHCOS ignition file ) to form the full cluster for (bootstrap,master and worker machines)
 ```
 yum install –y httpd
 sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
@@ -84,4 +84,19 @@ systemctl start httpd
 firewall-cmd --permanent --add-port=8080/tcp
 firewall-cmd –reload
 curl localhost:8080
+```
+
+## Downloading the openshift installer and client tools version 4.9.11
+```
+wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux-4.9.11.tar.gz
+wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-install-linux-4.9.11.tar.gz
+tar zxfz openshift-client-linux-4.9.11.tar.g
+cp oc kubectl /usr/local/bin/
+cp oc /usr/local/sbin/
+oc version
+kubectl version
+tar xvfz openshift-install-linux-4.9.11.tar.gz
+cp openshift-install /usr/local/bin/
+cp openshift-install /usr/local/sbin/
+openshift-install versio
 ```
