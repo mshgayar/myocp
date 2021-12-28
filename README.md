@@ -131,13 +131,13 @@ Steps :
 
 ```
 ## Half of work has been done , lets check all the services before starting the RHCOP installation
-#### Check apache server :
+### Check apache server :
 ```
 [root@ocp-services ~]# curl http://172.16.255.230:8080/ocp/metadata.json
 {"clusterName":"lab","clusterID":"7c815877-4f88-449b-ba50-c7b2136353bf","infraID":"lab-lbk4l"}[root@ocp-services ~]# 
 ```
 
-#### Check the dns server :
+### Check the dns server :
 ```
 [root@ocp-services ~]# dig -x 172.16.255.230
 
@@ -170,7 +170,7 @@ services.lab.example.com. 604800 IN	A	172.16.255.230
 ;; MSG SIZE  rcvd: 192
 ```
 
-#### check the dhcp server
+### check the dhcp server
 ```
 systemctl status dhcpd.service
 ```
