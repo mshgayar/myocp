@@ -115,7 +115,7 @@ Steps :
   - create the ignition-configs
   - copy all the ignition files to your webservers (/var/www/html/ocp)
 ```
-#mkdir install_dir
+mkdir install_dir
 cp install-config.yml install_dir
 openshift-install create manifests --dir=install_dir/
 sed -i 's/mastersSchedulable: true/mastersSchedulable: False/' install_dir/manifests/cluster-scheduler-02-config.yml
