@@ -115,18 +115,18 @@ Steps :
   - create the ignition-configs
   - copy all the ignition files to your webservers (/var/www/html/ocp)
 ```
-mkdir install_dir
-cp install-config.yml install_dir
-openshift-install create manifests --dir=install_dir/
-sed -i 's/mastersSchedulable: true/mastersSchedulable: False/' install_dir/manifests/cluster-scheduler-02-config.yml
-openshift-install create ignition-configs --dir=install_dir/
+  mkdir install_dir
+  cp install-config.yml install_dir
+  openshift-install create manifests --dir=install_dir/
+  sed -i 's/mastersSchedulable: true/mastersSchedulable: False/' install_dir/manifests/cluster-scheduler-02-config.yml
+  openshift-install create ignition-configs --dir=install_dir/
 
-copy all ignition file to ther web server
-cp install_dir/bootstrap.ign /var/www/html/ocp/
-cp install_dir/metadata.json /var/www/html/ocp/
-cp install_dir/master.ign /var/www/html/ocp/
+  copy all ignition file to ther web server
+  cp install_dir/bootstrap.ign /var/www/html/ocp/
+  cp install_dir/metadata.json /var/www/html/ocp/
+  cp install_dir/master.ign /var/www/html/ocp/
 
-sudo chown -R apache: /var/www/html/
-sudo chmod -R 755 /var/www/html/
+  chown -R apache: /var/www/html/
+  chmod -R 755 /var/www/html/
 
 ```
