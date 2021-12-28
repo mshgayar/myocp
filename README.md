@@ -208,12 +208,18 @@ Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
   
   ### For Bootstrap Machine : temporary machine to provision the whole cluster
     - Please boot from the rhcos-live iso , 
-    - After booting to the iso version , please confirm that the machine IP is assigned from the dhcp server with below details
-      - hostname : bootstrap.lab.example.com
-      - IP : 172.16.255.238
+    - After booting to the iso version , please confirm that the machine IP is assigned from the dhcp server with below details :
+      - hostname : bootstrap.lab.example.com  & IP : 172.16.255.238
     - Then install the bootstrap from its ignition files as per below :
-      - sudo coreos install /dev/sda --ignition-url http://172.16.255.230:8080/ocp --insecure-ignition
+      - sudo coreos install /dev/sda --ignition-url http://172.16.255.230:8080/ocp/bootstrap.ign --insecure-ignition
       - confirm that its loading the RHCOS image , after succefull loading , you can reboot the machine
    
-  ###
+  ### For Control Plane Machines ( master01,02,03)
+    - Please boot from the rhcos-live iso ,
+    - After booting to the iso version , please confirm that the machine IP is assigned from the dhcp server with below details :
+      - hostname : master01.lab.example.com & IP 172.16.255.231
+      - hostname : master02.lab.example.com & IP 172.16.255.232
+      - hostname : master03.lab.example.com & IP 172.16.255.233
+    - Then install the bootstrap from its ignition files as per below :
+      - sudo coreos install /dev/sda --ignition-url http://172.16.255.230:8080/ocp/master.ign --insecure-ignition
       
