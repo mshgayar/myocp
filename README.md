@@ -238,7 +238,9 @@ Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
   - wait 30 minutes till cluster to be up
     - openshift-install --dir=install_dir/ wait-for bootstrap-complete --log-level=info
   - After Sucessful Installation :
+   ```
     - export KUBECONFIG=~/install_dir/auth/kubeconfig
     - oc whoami
     - oc get nodes
     - oc get csr
+```
