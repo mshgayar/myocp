@@ -13,3 +13,6 @@ Below are virtual machines running on RHEL/Centos host with Qemu Virtualization 
     - DHCP Server dhcp
     - HAProxy Server haproxy
     - Apache Server httpd
+
+#### 1) Configure DNS Server
+
