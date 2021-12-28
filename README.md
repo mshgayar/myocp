@@ -103,3 +103,10 @@ openshift-install version
 oc version
 kubectl version
 ```
+
+## Setting Up RHOCP 4.9.11 ignition and configuration files
+Create a directory for the mainfest and ignition files
+```
+#mkdir install_dir
+cp install-config.yml install_dir
+```
