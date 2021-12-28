@@ -303,5 +303,15 @@ storage                                    4.9.11    True        False         F
     oc get oauth -o yaml > oauth.yml -n openshift-config
     htpasswd -c -b -B htpasswd-file admin redhat
     oc create secret generic localusers --from-file htpasswd=htpasswd-file  -n openshift-config
-   
     ```
+  - update the oauth server by adding the identity configurations to the oauth.yml file & vim oauth.yml
+  ```
+  spec:
+    identityProviders:
+    - htpasswd:
+        fileData:
+          name: localusers
+      mappingMethod:  claim
+      name: myusers
+      type: HTPasswd
+  ```
