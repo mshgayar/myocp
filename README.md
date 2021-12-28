@@ -130,3 +130,42 @@ Steps :
   chmod -R 755 /var/www/html/
 
 ```
+## Half of work has been done , lets check all the services before starting the RHCOP installation
+#### Check apache server :
+```
+[root@ocp-services ~]# curl http://172.16.255.230:8080/ocp/metadata.json
+{"clusterName":"lab","clusterID":"7c815877-4f88-449b-ba50-c7b2136353bf","infraID":"lab-lbk4l"}[root@ocp-services ~]# 
+```
+
+#### Check the dns server :
+```
+[root@ocp-services ~]# dig -x 172.16.255.230
+
+; <<>> DiG 9.11.26-RedHat-9.11.26-6.el8 <<>> -x 172.16.255.230
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 19375
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 1, ADDITIONAL: 2
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 5bc1a060efac17fb2a79c59561cb1d62c7344b78f65a37b2 (good)
+;; QUESTION SECTION:
+;230.255.16.172.in-addr.arpa.	IN	PTR
+
+;; ANSWER SECTION:
+230.255.16.172.in-addr.arpa. 604800 IN	PTR	api-int.lab.example.com.
+230.255.16.172.in-addr.arpa. 604800 IN	PTR	services.lab.example.com.
+230.255.16.172.in-addr.arpa. 604800 IN	PTR	api.lab.example.com.
+
+;; AUTHORITY SECTION:
+255.16.172.in-addr.arpa. 604800	IN	NS	services.lab.example.com.
+
+;; ADDITIONAL SECTION:
+services.lab.example.com. 604800 IN	A	172.16.255.230
+
+;; Query time: 1 msec
+;; SERVER: 172.16.255.230#53(172.16.255.230)
+;; WHEN: Tue Dec 28 17:21:22 +03 2021
+;; MSG SIZE  rcvd: 192
+```
