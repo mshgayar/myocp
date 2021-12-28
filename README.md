@@ -214,7 +214,7 @@ Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
       - sudo coreos install /dev/sda --ignition-url http://172.16.255.230:8080/ocp/bootstrap.ign --insecure-ignition
       - confirm that its loading the RHCOS image , after succefull loading , you can reboot the machine
    
-  ### For Control Plane Machines ( master01,02,03)
+  ### For Control Plane Machines ( master01,master02,master03)
     - Please boot from the rhcos-live iso ,
     - After booting to the iso version , please confirm that the machine IP is assigned from the dhcp server with below details :
       - hostname : master01.lab.example.com & IP 172.16.255.231
@@ -223,3 +223,11 @@ Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
     - Then install the bootstrap from its ignition files as per below :
       - sudo coreos install /dev/sda --ignition-url http://172.16.255.230:8080/ocp/master.ign --insecure-ignition
       
+   ### For Worker Machines ( worker01,worker02,worker03)
+    - Please boot from the rhcos-live iso ,
+    - After booting to the iso version , please confirm that the machine IP is assigned from the dhcp server with below details :
+      - hostname : worker01.lab.example.com & IP 172.16.255.234
+      - hostname : worker02.lab.example.com & IP 172.16.255.235
+      - hostname : worker03.lab.example.com & IP 172.16.255.236
+    - Then install the bootstrap from its ignition files as per below :
+      - sudo coreos install /dev/sda --ignition-url http://172.16.255.230:8080/ocp/worker.ign --insecure-ignition
