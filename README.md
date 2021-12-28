@@ -117,4 +117,8 @@ Steps :
 ```
 #mkdir install_dir
 cp install-config.yml install_dir
+openshift-install create manifests --dir=install_dir/
+sed -i 's/mastersSchedulable: true/mastersSchedulable: False/' install_dir/manifests/cluster-scheduler-02-config.yml
+openshift-install create ignition-configs --dir=install_dir/
+
 ```
