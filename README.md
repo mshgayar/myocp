@@ -244,7 +244,7 @@ Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
     - oc get nodes
     - oc get csr
 ```
-  - approve all the pending csr & after approving all the pending csrs , all the nodes will be registered and in READY state 
+  - approve all the pending csr & after approving all the pending csrs , all the nodes will be registered and in READY state  & all cluster operators to be running
   ```
     oc adm certificate approve "Name"
     oc get nodes
@@ -256,4 +256,39 @@ Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
   worker01.lab.example.com   Ready    worker   5d23h   v1.22.3+ffbb954
   worker02.lab.example.com   Ready    worker   5d23h   v1.22.3+ffbb954
   worker03.lab.example.com   Ready    worker   5d23h   v1.22.3+ffbb954
+  
+    oc get clusteroperators.config.openshift.io
+    NAME                                       VERSION   AVAILABLE   PROGRESSING   DEGRADED   SINCE   MESSAGE
+authentication                             4.9.11    True        False         False      5d23h   
+baremetal                                  4.9.11    True        False         False      6d      
+cloud-controller-manager                   4.9.11    True        False         False      6d      
+cloud-credential                           4.9.11    True        False         False      6d      
+cluster-autoscaler                         4.9.11    True        False         False      6d      
+config-operator                            4.9.11    True        False         False      6d      
+console                                    4.9.11    True        False         False      5d23h   
+csi-snapshot-controller                    4.9.11    True        False         False      6d      
+dns                                        4.9.11    True        False         False      6d      
+etcd                                       4.9.11    True        False         False      6d      
+image-registry                             4.9.11    True        False         False      5d23h   
+ingress                                    4.9.11    True        False         False      5d23h   
+insights                                   4.9.11    True        False         False      6d      
+kube-apiserver                             4.9.11    True        False         False      6d      
+kube-controller-manager                    4.9.11    True        False         False      6d      
+kube-scheduler                             4.9.11    True        False         False      6d      
+kube-storage-version-migrator              4.9.11    True        False         False      6d      
+machine-api                                4.9.11    True        False         False      6d      
+machine-approver                           4.9.11    True        False         False      6d      
+machine-config                             4.9.11    True        False         False      6d      
+marketplace                                4.9.11    True        False         False      6d      
+monitoring                                 4.9.11    True        False         False      5d23h   
+network                                    4.9.11    True        False         False      6d      
+node-tuning                                4.9.11    True        False         False      5d23h   
+openshift-apiserver                        4.9.11    True        False         False      6d      
+openshift-controller-manager               4.9.11    True        False         False      6d      
+openshift-samples                          4.9.11    True        False         False      6d      
+operator-lifecycle-manager                 4.9.11    True        False         False      6d      
+operator-lifecycle-manager-catalog         4.9.11    True        False         False      6d      
+operator-lifecycle-manager-packageserver   4.9.11    True        False         False      6d      
+service-ca                                 4.9.11    True        False         False      6d      
+storage                                    4.9.11    True        False         False      6d
   ```
