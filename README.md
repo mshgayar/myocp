@@ -7,7 +7,7 @@ Below are virtual machines running on RHEL/Centos host with Qemu Virtualization 
   - One Machine for Services ( DNS - DHCP - HAProxy and Webserver) 
   - One Machine for storage ( NFS Server)
 
-### Preparing the OCP-Services Machine : This Machine in installed with Centos 8
+## Preparing the OCP-Services Machine : This Machine in installed with Centos 8
   - We Have to install the below services
     - DNS Server bind
     - DHCP Server dhcp
