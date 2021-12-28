@@ -244,3 +244,7 @@ Dec 22 18:27:44 ocp-services systemd[1]: Started HAProxy Load Balancer.
     - oc get nodes
     - oc get csr
 ```
+  - approve all the pending csr
+  ```
+    oc adm certificate approve "Name"
+  ```
