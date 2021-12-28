@@ -16,11 +16,13 @@ Below are virtual machines running on RHEL/Centos host with Qemu Virtualization 
 
 #### DNS Server Installation : IP 172.16.255.230
 Install dns service
-  `yum -y install bind bind-utils`
-  `cp named.conf /etc/named.conf`
-  `cp named.conf.local /etc/named/`
+  ```
+  `yum -y install bind bind-utils
+  cp named.conf /etc/named.conf
+  cp named.conf.local /etc/named/
   `mkdir /etc/named/zones`
   `cp db* /etc/named/zones`
+  ```
 
 start & enable dns service
 systemctl enable named
